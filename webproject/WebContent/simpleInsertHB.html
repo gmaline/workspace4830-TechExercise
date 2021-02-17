@@ -11,7 +11,7 @@ nav {
     line-height:30px;
     background-color:#eeeeee;
     height:300px;
-    width:100px;
+    width:200px;
     float:left;
     padding:5px;	      
 }
@@ -32,11 +32,11 @@ footer {
 
 <body>
 <header>
-<h1> Insert Data (Hibernate)</h1>
+<h1> Add New Books! </h1>
 </header>
 
 <nav>
-<a href="/webproject/simpleSearchHB.html">Search Data</a> <br>
+<a href="/webproject/simpleSearchHB.html">Search Reading List</a> <br>
 </nav>
 
 <section>
@@ -44,8 +44,11 @@ footer {
 	
 	<form action="SimpleInsertHB" method="POST">
 	
-		User Name: <input type="text" name="userName"> <br />
-		Age: <input type="text" name="age"> <br />
+		Title: <input type="text" name="title"> <br />
+		Author: <input type="text" name="author"> <br />
+		Genre: <input type="text" name="genre"> <br />
+		Mood: <input type="text" name="mood"> <br />
+		Priority: <input type="text" name="priority"> <br />
 		
 		<input type="submit" value="Submit" />
 	</form>

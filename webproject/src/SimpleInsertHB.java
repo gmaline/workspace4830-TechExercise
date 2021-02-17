@@ -19,13 +19,16 @@ public class SimpleInsertHB extends HttpServlet implements Info {
    }
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String userName = request.getParameter("userName").trim();
-      String age = request.getParameter("age").trim();
-      UtilDB.createEmployees(userName, age);
+      String booktitle = request.getParameter("title").trim();
+      String author = request.getParameter("author").trim();
+      String genre = request.getParameter("genre").trim();
+      String mood = request.getParameter("mood").trim();
+      String priority = request.getParameter("priority").trim();
+      UtilDB.createBooks(booktitle, author, genre, mood, priority);
 
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      String title = "Database Result";
+      String title = "Your Reading List";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; //
       out.println(docType + //
             "<html>\n" + //
@@ -33,10 +36,13 @@ public class SimpleInsertHB extends HttpServlet implements Info {
             "<body bgcolor=\"#f0f0f0\">\n" + //
             "<h1 align=\"center\">" + title + "</h1>\n");
       out.println("<ul>");
-      out.println("<li> Name: " + userName);
-      out.println("<li> Age: " + age);
+      out.println("<li> Title: " + booktitle);
+      out.println("<li> Author: " + author);
+      out.println("<li> Genre: " + genre);
+      out.println("<li> Mood: " + mood);
+      out.println("<li> Priority: " + priority);
       out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Data</a> <br>");
+      out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Reading List</a> <br>");
       out.println("</body></html>");
    }
 

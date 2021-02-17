@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import datamodel.Employee;
+import datamodel.Book;
 import util.Info;
 import util.UtilDB;
 
@@ -34,27 +34,33 @@ public class SimpleSearchHB extends HttpServlet implements Info {
             "<h1 align=\"center\">" + title + "</h1>\n");
       out.println("<ul>");
 
-      List<Employee> listEmployees = null;
+      List<Book> listBooks = null;
       if (keyword != null && !keyword.isEmpty()) {
-         listEmployees = UtilDB.listEmployees(keyword);
+         listBooks = UtilDB.listBooks(keyword);
       } else {
-         listEmployees = UtilDB.listEmployees();
+         listBooks = UtilDB.listBooks();
       }
-      display(listEmployees, out);
+      display(listBooks, out);
       out.println("</ul>");
       out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Data</a> <br>");
       out.println("</body></html>");
    }
 
-   void display(List<Employee> listEmployees, PrintWriter out) {
-      for (Employee employee : listEmployees) {
-         System.out.println("[DBG] " + employee.getId() + ", " //
-               + employee.getName() + ", " //
-               + employee.getAge());
+   void display(List<Book> listBooks, PrintWriter out) {
+      for (Book book : listBooks) {
+         System.out.println("[DBG] " + book.getId() + ", " //
+               + book.getTitle() + ", " //
+               + book.getAuthor() + ", "//
+               + book.getGenre() + ", "//
+               + book.getMood() + ", "//
+               + book.getPriority());
 
-         out.println("<li>" + employee.getId() + ", " //
-               + employee.getName() + ", " //
-               + employee.getAge() + "</li>");
+         out.println("<li>" + book.getId() + ", " //
+               + book.getTitle() + ", " //
+               + book.getAuthor() + ", "//
+               + book.getGenre() + ", "//
+               + book.getMood() + ", "//
+               + book.getPriority() + "</li>");
       }
    }
 

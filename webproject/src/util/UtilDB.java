@@ -3,6 +3,7 @@
 package util;
 
 import java.util.List;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -10,7 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-import datamodel.Employee;
+import datamodel.Book;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -32,18 +33,18 @@ public class UtilDB {
       return sessionFactory;
    }
 
-   public static List<Employee> listEmployees() {
-      List<Employee> resultList = new ArrayList<Employee>();
+   public static List<Book> listBooks() {
+      List<Book> resultList = new ArrayList<Book>();
 
       Session session = getSessionFactory().openSession();
       Transaction tx = null;
 
       try {
          tx = session.beginTransaction();
-         List<?> employees = session.createQuery("FROM Employee").list();
-         for (Iterator<?> iterator = employees.iterator(); iterator.hasNext();) {
-            Employee employee = (Employee) iterator.next();
-            resultList.add(employee);
+         List<?> books = session.createQuery("FROM Book").list();
+         for (Iterator<?> iterator = books.iterator(); iterator.hasNext();) {
+            Book book = (Book) iterator.next();
+            resultList.add(book);
          }
          tx.commit();
       } catch (HibernateException e) {
@@ -56,19 +57,19 @@ public class UtilDB {
       return resultList;
    }
 
-   public static List<Employee> listEmployees(String keyword) {
-      List<Employee> resultList = new ArrayList<Employee>();
+   public static List<Book> listBooks(String keyword) {
+      List<Book> resultList = new ArrayList<Book>();
 
       Session session = getSessionFactory().openSession();
       Transaction tx = null;
 
       try {
          tx = session.beginTransaction();
-         List<?> employees = session.createQuery("FROM Employee").list();
-         for (Iterator<?> iterator = employees.iterator(); iterator.hasNext();) {
-            Employee employee = (Employee) iterator.next();
-            if (employee.getName().startsWith(keyword)) {
-               resultList.add(employee);
+         List<?> books = session.createQuery("FROM Book").list();
+         for (Iterator<?> iterator = books.iterator(); iterator.hasNext();) {
+            Book book = (Book) iterator.next();
+            if (book.getTitle().startsWith(keyword)) {
+               resultList.add(book);
             }
          }
          tx.commit();
@@ -82,12 +83,12 @@ public class UtilDB {
       return resultList;
    }
 
-   public static void createEmployees(String userName, String age) {
+   public static void createBooks(String title, String author, String genre, String mood, String priority) {
       Session session = getSessionFactory().openSession();
       Transaction tx = null;
       try {
          tx = session.beginTransaction();
-         session.save(new Employee(userName, Integer.valueOf(age)));
+         session.save(new Book(title, author, genre, mood, Integer.valueOf(priority)));
          tx.commit();
       } catch (HibernateException e) {
          if (tx != null)

@@ -43,6 +43,23 @@ public class Book {
    public Book() {
    }
 
+   public Book(Integer id, String title, String author, String genre, String mood, Integer priority) {
+	      this.id = id;
+	      this.title = title;
+	      this.author = author;
+	      this.genre = genre;
+	      this.mood = mood;
+	      this.priority = priority;
+	   }
+   
+   public Book(String title, String author, String genre, String mood, Integer priority) {
+	      this.title = title;
+	      this.author = author;
+	      this.genre = genre;
+	      this.mood = mood;
+	      this.priority = priority;
+	   }
+   
    public Book(Integer id, String title, Integer priority) {
       this.id = id;
       this.title = title;
@@ -103,6 +120,6 @@ public class Book {
 	}
    @Override
    public String toString() {
-      return "Book: " + this.id + ", " + this.title + ", " + this.priority;
+      return "Book: " + this.id + ", " + this.title + ", " + this.author + ", " + this.genre + ", " + this.mood + ", " + this.priority;
    }
 }
