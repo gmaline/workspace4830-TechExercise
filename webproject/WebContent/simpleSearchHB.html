@@ -2,7 +2,7 @@
 <head>
 <style>
 header {
-    background-color:black;
+    background-color:#ffcccc;
     color:white;
     text-align:center;
     padding:5px;	 
@@ -21,7 +21,7 @@ section {
     padding:10px;	 	 
 }
 footer {
-    background-color:black;
+    background-color:#ffcccc;
     color:white;
     clear:both;
     text-align:center;
@@ -32,19 +32,21 @@ footer {
 
 <body>
 <header>
-<h1> Search Reading List </h1>
+<h1 style="font-family: Arial"> Reading List </h1>
 </header>
 
 <nav>
-<a href="/webproject/simpleInsertHB.html">Insert Data</a> <br>
+<a href="/webproject/simpleInsertHB.html">Insert Data</a>
 </nav>
 
 <section>
-	<h1>User Input</h1>
+	<h1> Search Reading List by Title </h1>
 	
 	<form action="SimpleSearchHB" method="POST">
 	
-		User Name: <input type="text" name="keyword"> <br />
+		Title: <input type="text" name="keyword"> <br />
+		
+		<br />
 		
 		<input type="submit" value="Search" />
 	</form>
@@ -52,7 +54,6 @@ footer {
 </section>
 
 <footer>
-Copyright
 </footer>
 </body>
 </html>

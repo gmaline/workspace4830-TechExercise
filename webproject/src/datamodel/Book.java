@@ -13,7 +13,7 @@ import javax.persistence.Table;
   title VARCHAR(30) NOT NULL,   
   author VARCHAR(30),
   genre VARCHAR(30),
-  mood VARCHAR(30) CHECK (mood='Sad' OR mood='Happy' OR mood='Motivated' OR mood='Curious'),
+  mood VARCHAR(30),
   priority INT(3) CHECK (priority >=1 AND priority <= 3),
   PRIMARY KEY (id));
  */

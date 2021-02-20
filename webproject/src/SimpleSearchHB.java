@@ -25,7 +25,7 @@ public class SimpleSearchHB extends HttpServlet implements Info {
 
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      String title = "Database Result";
+      String title = "Reading List Results";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; //
       out.println(docType + //
             "<html>\n" + //
@@ -42,25 +42,61 @@ public class SimpleSearchHB extends HttpServlet implements Info {
       }
       display(listBooks, out);
       out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Data</a> <br>");
+      out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Reading List</a> <br>");
       out.println("</body></html>");
    }
 
    void display(List<Book> listBooks, PrintWriter out) {
       for (Book book : listBooks) {
-         System.out.println("[DBG] " + book.getId() + ", " //
-               + book.getTitle() + ", " //
-               + book.getAuthor() + ", "//
-               + book.getGenre() + ", "//
-               + book.getMood() + ", "//
-               + book.getPriority());
-
-         out.println("<li>" + book.getId() + ", " //
-               + book.getTitle() + ", " //
-               + book.getAuthor() + ", "//
-               + book.getGenre() + ", "//
-               + book.getMood() + ", "//
-               + book.getPriority() + "</li>");
+	    	 if (book.getPriority() == 1) {
+		         System.out.println("[DBG] " + book.getId() + ", " //
+		               + book.getTitle() + ", " //
+		               + book.getAuthor() + ", "//
+		               + book.getGenre() + ", "//
+		               + book.getMood() + ", "//
+		               + book.getPriority());
+		
+		         out.println("<h4>" + book.getTitle() + "</h4>" //
+		               + "<li>Id: " + book.getId() + "</li>" //
+		               + "<li>Author: " + book.getAuthor() + "</li>"//
+		               + "<li>Genre: " + book.getGenre() + "</li>"//
+		               + "<li>Mood: " + book.getMood() + "</li>"//
+		               + "<li>Priority: " + book.getPriority() + "</li>");
+	    	 }	 
+      }
+      for (Book book : listBooks) {
+	    	 if (book.getPriority() == 2) {
+		         System.out.println("[DBG] " + book.getId() + ", " //
+		               + book.getTitle() + ", " //
+		               + book.getAuthor() + ", "//
+		               + book.getGenre() + ", "//
+		               + book.getMood() + ", "//
+		               + book.getPriority());
+		
+		         out.println("<h4>" + book.getTitle() + "</h4>" //
+		               + "<li>Id: " + book.getId() + "</li>" //
+		               + "<li>Author: " + book.getAuthor() + "</li>"//
+		               + "<li>Genre: " + book.getGenre() + "</li>"//
+		               + "<li>Mood: " + book.getMood() + "</li>"//
+		               + "<li>Priority: " + book.getPriority() + "</li>");
+	    	 }	
+      }
+      for (Book book : listBooks) {
+	    	 if (book.getPriority() == 3) {
+		         System.out.println("[DBG] " + book.getId() + ", " //
+		               + book.getTitle() + ", " //
+		               + book.getAuthor() + ", "//
+		               + book.getGenre() + ", "//
+		               + book.getMood() + ", "//
+		               + book.getPriority());
+		
+		         out.println("<h4>" + book.getTitle() + "</h4>" //
+		               + "<li>Id: " + book.getId() + "</li>" //
+		               + "<li>Author: " + book.getAuthor() + "</li>"//
+		               + "<li>Genre: " + book.getGenre() + "</li>"//
+		               + "<li>Mood: " + book.getMood() + "</li>"//
+		               + "<li>Priority: " + book.getPriority() + "</li>");
+	    	 }	 
       }
    }
 
