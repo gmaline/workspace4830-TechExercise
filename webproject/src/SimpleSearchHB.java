@@ -42,7 +42,8 @@ public class SimpleSearchHB extends HttpServlet implements Info {
       }
       display(listBooks, out);
       out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Reading List</a> <br>");
+      out.println("<a href=http://ec2-18-223-116-99.us-east-2.compute.amazonaws.com:8080/" + projectName + "/" + searchWebName + ">Search Reading List</a> <br>");
+      out.println("<a href=http://ec2-18-223-116-99.us-east-2.compute.amazonaws.com:8080/webprojectTechExercise/simpleInsertHB.html" + ">Insert to Reading List</a> <br>");
       out.println("</body></html>");
    }
 

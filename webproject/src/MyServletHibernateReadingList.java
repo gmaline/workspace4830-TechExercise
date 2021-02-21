@@ -52,8 +52,8 @@ public class MyServletHibernateReadingList extends HttpServlet {
                + "<li>Priority: " + book.getPriority() + "</li>");
       }
       out.println("</ul>");
-      out.println("<a href=/webproject/simpleSearchHB.html" + ">Search Reading List</a> <br>");
-      out.println("<a href=/webproject/simpleInsertHB.html" + ">Insert to Reading List</a> <br>");
+      out.println("<a href=http://ec2-18-223-116-99.us-east-2.compute.amazonaws.com:8080/webprojectTechExercise/simpleSearchHB.html" + ">Search Reading List</a> <br>");
+      out.println("<a href=http://ec2-18-223-116-99.us-east-2.compute.amazonaws.com:8080/webprojectTechExercise/simpleInsertHB.html" + ">Insert to Reading List</a> <br>");
       out.println("</body></html>");
    }
 
